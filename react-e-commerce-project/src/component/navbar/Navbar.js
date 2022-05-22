@@ -8,9 +8,9 @@ function Navbar() {
         <div className="container">
           <div className="row">
             <div className="col-md-4 d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
-              <a href="#!" className="ms-md-2">
+              <Link to="/" className="ms-md-2">
                 <img src={logo} height={35} alt="draza Logo" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-4">
               <form className="d-flex input-group w-auto my-auto mb-3 mb-md-0">
@@ -41,16 +41,14 @@ function Navbar() {
                 </a>
                 {/* Notification */}
 
-                {/* <div>
-                  <button
-                    className="btn text-white fw-bold"
-                    style={{ backgroundColor: "#f57224", border: "none" }}
-                  >
-                    LOGIN
-                  </button>
-                </div> */}
-
-                <Link to="/login" className="btn text-uppercase fw-bold" style={{backgroundColor:""}}>Login</Link>
+               
+                <Link
+                  to="/login"
+                  className="btn text-uppercase text-white fw-bold"
+                  style={{ backgroundColor: "#f57224" }}
+                >
+                  Login
+                </Link>
               </div>
             </div>
           </div>
