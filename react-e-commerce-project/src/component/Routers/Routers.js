@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { auth } from "../config/Firebase";
 import Footer from "../footer/Footer";
@@ -8,17 +8,16 @@ import Login from "../Pages/login/Login";
 import Register from "../Pages/register/Register";
 import Admin from "../Pages/admin/Admin";
 function Routers() {
-
-     const [currentUser, setcurrentUser] = useState(true);
-     useEffect(() => {
-       auth.onAuthStateChanged((user) => {
-         if (user) {
-           return setcurrentUser(true);
-         } else {
-           return setcurrentUser(false);
-         }
-       });
-     }, [currentUser]);
+  const [currentUser, setcurrentUser] = useState(true);
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        return setcurrentUser(true);
+      } else {
+        return setcurrentUser(false);
+      }
+    });
+  }, [currentUser]);
 
   return (
     <>
