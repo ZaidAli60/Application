@@ -6,7 +6,7 @@ function Admin() {
   const [price, setprice] = useState("");
   const [description, setdescription] = useState("");
   const [image, setimage] = useState("");
-
+co
 // console.log(product)
   return (
     <div className="d-flex justify-content-center">
@@ -16,7 +16,7 @@ function Admin() {
           border: "1px solid black",
         }}
       >
-        <form className="row g-3 py-4 px-4 ">
+        <form className="row g-3 py-4 px-4 " >
           <div>
             <h2 className="text-uppercase">Add Products</h2>
           </div>
@@ -54,7 +54,9 @@ function Admin() {
               type="number"
               className="form-control"
               id="inputEmail4"
-              placeholder=" Category"
+              placeholder=" Price"
+              value={price}
+              onChange={(e) => setprice(e.target.value)}
             />
           </div>
           <div className="col-md-6">
@@ -69,6 +71,8 @@ function Admin() {
               className="form-control"
               id="inputPassword4"
               placeholder="Description "
+              value={description}
+              onChange={(e) => setdescription(e.target.value)}
             />
           </div>
 
@@ -81,6 +85,8 @@ function Admin() {
               type="file"
               multiple
               accept="image/*"
+              value={image}
+              onChange={(e)=> setimage(e.target.value)}
             />
           </div>
 
