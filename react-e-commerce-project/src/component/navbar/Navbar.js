@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../../Assets/logo.png"
+import { Link } from "react-router-dom";
+import logo from "../../Assets/logo.png";
 function Navbar() {
   return (
     <nav className="sticky-top">
@@ -40,14 +41,16 @@ function Navbar() {
                 </a>
                 {/* Notification */}
 
-                <div>
+                {/* <div>
                   <button
                     className="btn text-white fw-bold"
                     style={{ backgroundColor: "#f57224", border: "none" }}
                   >
                     LOGIN
                   </button>
-                </div>
+                </div> */}
+
+                <Link to="/login" className="btn text-uppercase fw-bold" style={{backgroundColor:""}}>Login</Link>
               </div>
             </div>
           </div>
