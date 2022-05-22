@@ -3,7 +3,25 @@ import React from "react";
 function Footer() {
   return (
     <>
-      <h1>Footer</h1>
+      <div style={{ backgroundColor: "#f57224" }}>
+        <div className="container py-5 footerIcon d-flex justify-content-between">
+          <a className="btn text-white">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a className="btn text-white ">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a className="btn text-white ">
+            <i class="bi bi-google"></i>
+          </a>
+          <a className="btn text-white ">
+            <i class="bi bi-youtube"></i>
+          </a>
+        </div>
+        <div>
+          <p className="py-3 text-white mb-0">&copy; 2022 Copyright</p>
+        </div>
+      </div>
     </>
   );
 }
