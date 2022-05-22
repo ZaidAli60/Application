@@ -6,8 +6,18 @@ function Admin() {
   const [price, setprice] = useState("");
   const [description, setdescription] = useState("");
   const [image, setimage] = useState("");
-co
-// console.log(product)
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const formObj = {
+      product,
+      category,
+      price,
+      description,
+      image,
+    };
+    console.log(formObj);
+  };
+  // console.log(product)
   return (
     <div className="d-flex justify-content-center">
       <div
@@ -16,7 +26,7 @@ co
           border: "1px solid black",
         }}
       >
-        <form className="row g-3 py-4 px-4 " >
+        <form className="row g-3 py-4 px-4 " onSubmit={formSubmit}>
           <div>
             <h2 className="text-uppercase">Add Products</h2>
           </div>
@@ -86,7 +96,7 @@ co
               multiple
               accept="image/*"
               value={image}
-              onChange={(e)=> setimage(e.target.value)}
+              onChange={(e) => setimage(e.target.value)}
             />
           </div>
 
