@@ -20,7 +20,11 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div>
+        <div
+          style={{
+            backgroundColor: "	#343434",
+          }}
+        >
           <p className="py-3 text-white mb-0">&copy; 2022 Copyright</p>
         </div>
       </div>

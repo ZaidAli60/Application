@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Admin() {
+  const [product, setproduct] = useState("");
+  const [category, setcategory] = useState("");
+  const [price, setprice] = useState("");
+  const [description, setdescription] = useState("");
+  const [image, setimage] = useState("");
+
+// console.log(product)
   return (
     <div className="d-flex justify-content-center">
       <div
-        className="col-md-8 my-4 "
+        className="col-md-8 my-4"
         style={{
           border: "1px solid black",
         }}
@@ -19,6 +26,8 @@ function Admin() {
               type="text"
               className="form-control"
               placeholder="Product Title"
+              value={product}
+              onChange={(e) => setproduct(e.target.value)}
             />
           </div>
           <div className="col-md-6">
@@ -33,6 +42,8 @@ function Admin() {
               className="form-control"
               id="inputPassword4"
               placeholder=" Category"
+              value={category}
+              onChange={(e) => setcategory(e.target.value)}
             />
           </div>
           <div className="col-md-6">
@@ -54,27 +65,23 @@ function Admin() {
               Description
             </label>
             <input
-              type="number"
+              type="text"
               className="form-control"
               id="inputPassword4"
               placeholder="Description "
             />
           </div>
-          <div className="col-md-6">
-            <label htmlFor="inputState" className="form-label">
-              Choose Account
-            </label>
-            <select id="inputState" className="form-select">
-              <option selected>Choose Account Type</option>
-              <option>Saving</option>
-              <option>Current</option>
-            </select>
-          </div>
+
           <div className="col-md-6">
             <label htmlFor="inputPassword4" className="form-label">
-              Initial Deposit{" "}
+              Images
             </label>
-            <input type="number" className="form-control" id="inputPassword4" />
+            <input
+              className="form-control"
+              type="file"
+              multiple
+              accept="image/*"
+            />
           </div>
 
           <div className="col-12">
