@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../config/Firebase";
 import logo from "../../Assets/logo.png";
-function Navbar() {
+function Navbar({ currentUser }) {
   return (
     <nav className="sticky-top">
       <div className="p-3 text-center bg-white border-bottom ">
@@ -40,15 +41,34 @@ function Navbar() {
                   </span>
                 </a>
                 {/* Notification */}
-
-               
                 <Link
-                  to="/login"
-                  className="btn text-uppercase text-white fw-bold"
-                  style={{ backgroundColor: "#f57224" }}
+                  to="/admin"
+                  className="btn text-white fw-bold text-uppercase mx-1"
+                  style={{
+                    backgroundColor: "#f57224",
+                  }}
                 >
-                  Login
+                  Admin
                 </Link>
+
+                {currentUser ? (
+                  <Link
+                    to="/login"
+                    className="btn text-uppercase text-white fw-bold btn-danger"
+                    // style={{ backgroundColor: "#f57224" }}
+                    onClick={() => auth.signOut(auth)}
+                  >
+                    Logout
+                  </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="btn text-uppercase text-white fw-bold"
+                    style={{ backgroundColor: "#f57224" }}
+                  >
+                    Login
+                  </Link>
+                )}
               </div>
             </div>
           </div>

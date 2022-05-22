@@ -1,50 +1,73 @@
-import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Login.css";
-import { auth } from "../../config/Firebase";
+import {auth} from "../../config/Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
+import {useState} from "react";
 
 function Login() {
     const [loginEmail, setloginEmail] = useState("");
     const [loginPassword, setloginPassword] = useState("");
+    const [ShowHomePage, setShowHomePage] = useState(false);
+    const [ShowSignPage, setShowSignPage] = useState(false);
 
+    if (ShowHomePage) {
+      return (
+        <Navigate
+          to={{
+            pathname: "/",
+          }}
+        />
+      );
+    }
+    
+    if (ShowSignPage) {
+      return (
+        <Navigate
+          to={{
+            pathname: "/register",
+          }}
+        />
+      );
+    }
 
+    const formSubmitHandler = (e) => {
+      e.preventDefault();
 
-const formSubmitHandler = (e) => {
-  e.preventDefault();
+      signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // alert(user.uid);
+          setloginEmail("");
+          setloginPassword("");
+          toast.success("User has been Logged in!", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setShowHomePage(true);
+          // ...
+        })
+        .catch((error) => {
+          // alert(error.message);
+          toast.error(error.message, {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setShowSignPage(true)
+        });
+    };
 
-  signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // alert(user.uid);
-      setloginEmail("");
-      setloginPassword("");
-      toast.success("User has been Logged in!", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      // ...
-    })
-    .catch((error) => {
-      // alert(error.message);
-      toast.error(error.message, {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    });
-};
 
 
   return (
@@ -57,7 +80,7 @@ const formSubmitHandler = (e) => {
             </h5>
             <form className="mt-5 text-center" onSubmit={formSubmitHandler}>
               <input
-                type="e-mail"
+                type="email"
                 className="form-control inputField "
                 placeholder="Enter Your E-mail"
                 value={loginEmail}
