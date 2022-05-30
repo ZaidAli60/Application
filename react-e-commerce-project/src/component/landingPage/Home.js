@@ -1,15 +1,16 @@
-import React from 'react'
+import React from "react";
 import Product from "../landingPage/Product/Product";
-import Slider from './Slider'
+import NewProduct from "./NewProduct";
+import Slider from "./Slider";
 
 function Home() {
   return (
     <>
-        <Slider />
-    
-        <Product />
+      <Slider />
+      <Product />
+      <NewProduct />
     </>
-  )
+  );
 }
 
 export default Home;

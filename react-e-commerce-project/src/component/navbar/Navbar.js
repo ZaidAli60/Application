@@ -2,7 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../config/Firebase";
 import logo from "../../Assets/logo.png";
+import { CartState } from "../../context/Context";
 function Navbar({ currentUser }) {
+    const {
+      state: { cart },
+      dispatch,
+    } = CartState();
   return (
     <nav className="sticky-top">
       <div className="p-3 text-center bg-white border-bottom ">
@@ -37,7 +42,7 @@ function Navbar({ currentUser }) {
                     <i class="bi bi-cart-plus-fill fs-3"></i>
                   </span>
                   <span class="badge rounded-pill badge-notification bg-danger">
-                    1
+                    {cart.length}
                   </span>
                 </Link>
                 {/* Notification */}
