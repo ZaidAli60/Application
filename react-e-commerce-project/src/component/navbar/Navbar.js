@@ -32,14 +32,14 @@ function Navbar({ currentUser }) {
             <div className="col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
               <div className="d-flex">
                 {/* Cart */}
-                <a className="text-reset me-3" href="#">
+                <Link className="text-reset me-3" to="/cart">
                   <span>
                     <i class="bi bi-cart-plus-fill fs-3"></i>
                   </span>
                   <span class="badge rounded-pill badge-notification bg-danger">
                     1
                   </span>
-                </a>
+                </Link>
                 {/* Notification */}
                 <Link
                   to="/admin"
