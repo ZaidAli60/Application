@@ -8,7 +8,7 @@ import { firestore } from "../../config/firebase";
 import { collection, getDocs } from "firebase/firestore/lite";
 function Dashboard() {
   const [documents, setDocuments] = useState([]);
-  console.log(documents);
+  // console.log(documents);
   const collectionName = "users";
   const docsCollectionRef = collection(firestore, collectionName);
 
@@ -130,7 +130,7 @@ function Dashboard() {
                 <tbody>
                   {documents.map((item) => {
                     return (
-                      <tr>
+                      <tr key={item.id}>
                         <td>
                           {" "}
                           <img

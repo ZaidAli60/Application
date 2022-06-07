@@ -27,13 +27,11 @@ function Sidbar({ rtl, toggled, handleToggleSidebar }) {
     paddingTop: "1rem",
     paddingLeft: "1.5rem",
     paddingRight: "1.5rem",
-    fontWeight: "bold",
     letterSpacing: "1px",
     overflow: "hidden",
     textOverflow: "ellipsis",
     backgroundColor: "#252f3e",
-  }
-  
+  };
 
   //create a custom function that will change menucollapse state from false to true and true to false
   const menuIconClick = () => {
@@ -48,7 +46,6 @@ function Sidbar({ rtl, toggled, handleToggleSidebar }) {
       toggled={toggled}
       handleToggleSidebar={handleToggleSidebar}
       breakPoint="md"
-    
     >
       <SidebarHeader style={headerStyle}>
         <div className="logotext ">
@@ -65,21 +62,26 @@ function Sidbar({ rtl, toggled, handleToggleSidebar }) {
             />
           )}
         </div>
-        <div className="closemenu" onClick={menuIconClick}>
-          {/* changing menu collapse icon on click */}
+        {/* <div className="closemenu" onClick={menuIconClick}>
           {menuCollapse ? <FiArrowRightCircle /> : <FiArrowLeftCircle />}
-        </div>
+        </div> */}
 
-        <div className="my-4 d-flex align-items-center flex-wrap">
-          <img
-            src={Admin}
-            className="img-fluid rounded-circle "
-            style={{
-              width: "3.5rem",
-            }}
-            alt="admin"
-          />
-          <div className="mx-3 text-white fs-5 ">Zaid Ali</div>
+        <div className="my-4">
+          <span className="d-flex justify-content-center">
+            <img
+              src={Admin}
+              className="img-fluid rounded-circle "
+              style={{
+                width: "3.5rem",
+              }}
+              alt="admin"
+            />
+          </span>
+
+          <div className="text-white text-center mt-3">
+            <h5>Zaid Ali</h5>
+            <p>zaidali60gb@gmail.com</p>
+          </div>
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -94,6 +96,14 @@ function Sidbar({ rtl, toggled, handleToggleSidebar }) {
             <Link to="/newproduct">New Product</Link>
           </MenuItem>
         </Menu>
+
+        <div className="closemenu mx-4" onClick={menuIconClick}>
+          {menuCollapse ? (
+            <FiArrowRightCircle className="fs-3" />
+          ) : (
+            <FiArrowLeftCircle className="fs-3" />
+          )}
+        </div>
       </SidebarContent>
       <SidebarFooter>
         <Menu
