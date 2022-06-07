@@ -31,7 +31,9 @@ function Sidbar({ rtl, toggled, handleToggleSidebar }) {
     letterSpacing: "1px",
     overflow: "hidden",
     textOverflow: "ellipsis",
-  };
+    backgroundColor: "#252f3e",
+  }
+  
 
   //create a custom function that will change menucollapse state from false to true and true to false
   const menuIconClick = () => {
@@ -46,6 +48,7 @@ function Sidbar({ rtl, toggled, handleToggleSidebar }) {
       toggled={toggled}
       handleToggleSidebar={handleToggleSidebar}
       breakPoint="md"
+    
     >
       <SidebarHeader style={headerStyle}>
         <div className="logotext ">
@@ -93,7 +96,12 @@ function Sidbar({ rtl, toggled, handleToggleSidebar }) {
         </Menu>
       </SidebarContent>
       <SidebarFooter>
-        <Menu iconShape="circle">
+        <Menu
+          iconShape="circle"
+          style={{
+            backgroundColor: "#252f3e",
+          }}
+        >
           <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
         </Menu>
       </SidebarFooter>

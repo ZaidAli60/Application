@@ -27,6 +27,7 @@ body {
   width: 680px;
   max-width: 280px;
   min-width: 280px;
+   background-color: #252f3e !important;
   /* position: fixed; */
 }
 
