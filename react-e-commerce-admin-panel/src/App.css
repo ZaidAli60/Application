@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+
+body {
+  margin: 0;
+  height: 100vh;
+  color: #353535;
+  font-family: "Roboto", sans-serif;
+}
+#root {
+  height: 100%;
+}
+.App {
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.App main {
+  width: 100%;
+  /* position: absolute; */
+  /* position: fixed; */
+  /* left: 200px; */
+  height: 100vh;
+  align-items: center;
+}
+.pro-sidebar {
+  width: 680px;
+  max-width: 280px;
+  min-width: 280px;
+  /* position: fixed; */
+}
+
+@media (max-width: 768px) {
+  .pro-sidebar.md {
+    position: fixed;
+    left: -280px;
+  }
+  .pro-sidebar.md.rtl {
+    left: auto;
+    right: -280px;
+  }
+}
+.pro-sidebar-content,
+.pro-sidebar > .pro-sidebar-inner,
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
+  background-color: #252f3e;
+}

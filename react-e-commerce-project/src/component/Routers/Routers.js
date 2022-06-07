@@ -6,7 +6,7 @@ import Navbar from "../navbar/Navbar";
 import Home from "../landingPage/Home";
 import Login from "../Pages/login/Login";
 import Register from "../Pages/register/Register";
-import Admin from "../Pages/admin/Admin";
+// import Admin from "../Pages/admin/Admin";
 import Cart from "../Pages/cart/Cart";
 function Routers() {
   const [currentUser, setcurrentUser] = useState(true);
@@ -29,7 +29,10 @@ function Routers() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/admin" element={<Admin />}></Route>
+          {/* <Route path="/admin" element={<Admin />}>
+
+
+          </Route> */}
         </Routes>
         <Footer />
       </BrowserRouter>
